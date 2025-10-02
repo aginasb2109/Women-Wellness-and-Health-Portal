@@ -1,0 +1,32 @@
+
+import './App.css';
+import Login from "./FormPages/Login/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserDashboard from './Pages/UserDashboard/UserDashboard';
+import { Toaster } from "react-hot-toast";
+import Register from "./FormPages/Register/Register";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import LandingPage from './Pages/LandingPage/LandingPage';
+import Forum from "./FormPages/Forum/Forum";
+import NutritionWellWisher from './Pages/NutritionWellWisher/NutritionWellWisher';
+
+
+function App() {
+  return (
+   <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/Nutrition" element={<NutritionWellWisher />} />
+        </Routes>
+        <Toaster />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

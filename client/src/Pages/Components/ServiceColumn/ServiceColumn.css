@@ -1,0 +1,38 @@
+.FirstCol {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 20px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0) !important;
+  
+}
+
+.ServiceButtons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important; /* more space between buttons */
+  margin-top: 15px !important;
+}
+
+.ServiceButton {
+  background-color: #fff !important;
+  color: #d81b60 !important;
+  font-weight: 600 !important;
+  padding: 14px 20px !important; /* bigger buttons */
+  border-radius: 25px !important; /* pill-shaped */
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+  box-shadow: 0px 5px 12px rgba(0,0,0,0.12) !important;
+  text-transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.ServiceButton:hover {
+  background: linear-gradient(135deg, #f06292, #ec407a) !important; /* gradient hover */
+  color: #fff !important;
+  transform: translateX(5px) scale(1.02) !important;
+  box-shadow: 0px 8px 18px rgba(0,0,0,0.18) !important;
+}

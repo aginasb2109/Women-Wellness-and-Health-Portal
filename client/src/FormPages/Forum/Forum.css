@@ -1,0 +1,59 @@
+/* Wrapper with gradient background */
+.forum-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8d7f9)!important;
+  padding: 20px;
+}
+
+/* Forum Card */
+.content-forum {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  border-radius: 20px !important;
+  background: #ffffffee; /* soft white */
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+  
+  width: 1200px;       /* fixed wide look */
+  max-width: 95%;     /* responsive */
+  transition: 0.3s ease;
+}
+
+.content-forum:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Forum Title */
+.forum-title {
+  text-align: center;
+  font-weight: bold;
+  color: #8e24aa;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input Fields */
+.forum-input {
+  width: 100%;
+}
+
+/* Submit button styling */
+.forum-btn {
+  background: linear-gradient(90deg, #d81b60, #8e24aa);
+  color: white !important;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 14px 0;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+}
+
+.forum-btn:hover {
+  background: linear-gradient(90deg, #8e24aa, #d81b60);
+  transform: scale(1.05);
+}

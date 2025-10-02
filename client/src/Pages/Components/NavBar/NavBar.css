@@ -1,0 +1,10 @@
+.LandingNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #d81b60, #8e24aa) !important;
+  padding: 12px 25px;
+  color: white;
+  font-weight: bold !important;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}

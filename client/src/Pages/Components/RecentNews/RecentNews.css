@@ -1,0 +1,88 @@
+.RecentNews {
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.12);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.RecentNewsTitle {
+  font-size: 1.8rem;
+  color: #880e4f;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.RecentNewsTitle::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #ec407a;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* News List */
+.NewsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+/* News Card */
+.NewsCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  border-left: 6px solid #ec407a;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.NewsCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+}
+
+/* Add a light floating background */
+.NewsCard::before {
+  content: "🌸";
+  position: absolute;
+  font-size: 4rem;
+  top: -10px;
+  right: -10px;
+  opacity: 0.07;
+}
+
+/* Title */
+.NewsCardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6a1b9a;
+  margin-bottom: 6px;
+}
+
+/* Date */
+.NewsCardDate {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.NewsCardDesc {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
