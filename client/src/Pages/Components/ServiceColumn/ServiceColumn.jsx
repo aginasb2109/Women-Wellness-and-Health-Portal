@@ -17,7 +17,7 @@ const ServicesColumn = () => {
     { name: "Period Tracker", icon: <CalendarTodayIcon />, path: "/period-tracker" },
     { name: "Doctor Appointments", icon: <LocalHospitalIcon />, path: "/doctor-appointments" },
     { name: "Nutrition Well-Wisher", icon: <RestaurantIcon />, path: "/Nutrition" },
-    { name: "Diet Plans", icon: <SpaIcon />, path: "/diet-plans" },
+    { name: "Diet Plans", icon: <SpaIcon />, path: "/Diet" },
     { name: "Fitness Routines", icon: <FitnessCenterIcon />, path: "/fitness-routines" },
     
   ];

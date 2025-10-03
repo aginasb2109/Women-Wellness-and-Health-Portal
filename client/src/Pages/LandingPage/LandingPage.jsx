@@ -31,7 +31,8 @@ const LandingPage = () => {
         <h1>Welcome to the Women Health & Wellness Portal</h1>
         <p>Your one-stop solution for health, fitness, and wellness.</p>
         <div className="LandingButtons">
-          <Button onClick={() => navigate("/login")} variant="contained" className="LandingButton">
+          <Button onClick={() => navigate("/login")} variant="contained" className="LandingButton"
+          sx={{background: "linear-gradient(90deg, #d81b60, #8e24aa)"}} >
             Get Started
           </Button>
         </div>

@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import Forum from "./FormPages/Forum/Forum";
 import NutritionWellWisher from './Pages/NutritionWellWisher/NutritionWellWisher';
+import DietPlans from './Pages/DietPlanner/DietPlans';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/forum" element={<Forum />} />
           <Route path="/Nutrition" element={<NutritionWellWisher />} />
+          <Route path="/Diet" element={<DietPlans />} />
         </Routes>
         <Toaster />
       </div>

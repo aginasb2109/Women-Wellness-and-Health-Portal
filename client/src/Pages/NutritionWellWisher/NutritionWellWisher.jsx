@@ -18,17 +18,17 @@ const NutritionWellWisher = () => {
     }
 
     setLoading(true);
-    setResponse(""); // Clear previous response
+    setResponse(""); 
 
     try {
       const res = await axios.post("http://localhost:8080/user/Ai/nutrition", { query });
-      setResponse(res.data); // AI answer as string
+      setResponse(res.data); 
     } catch (err) {
       console.error(err);
       setResponse("⚠️ Error while getting advice! Please try again.");
     } finally {
       setLoading(false);
-      setQuery(""); // Optional: clear input after sending
+      setQuery(""); 
     }
   };
 
@@ -71,7 +71,7 @@ const NutritionWellWisher = () => {
               minHeight: "100px",
               padding: 2,
               borderRadius: 2,
-              backgroundColor: response ? "#f8d7f9" : "transparent", // Pink bg only when response arrives
+              backgroundColor: response ? "#f8d7f9" : "transparent", 
               transition: "background-color 0.3s ease",
             }}
           >
