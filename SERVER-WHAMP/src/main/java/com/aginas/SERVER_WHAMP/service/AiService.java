@@ -45,5 +45,40 @@ public class AiService {
             return "Error generating answer";
         }
     }
+
+    public String getAdvice(String prompt) {
+        try {
+            String aiUrl = "http://localhost:11434/api/generate"; // Ollama server
+            RestTemplate restTemplate = new RestTemplate();
+
+            Map<String, Object> body = new HashMap<>();
+            body.put("model", "llama3.2:1b");
+            body.put("prompt", prompt);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+
+            // Call Ollama API
+            String rawResponse = restTemplate.postForObject(aiUrl, entity, String.class);
+
+            // Parse streaming JSON chunks
+            StringBuilder finalAnswer = new StringBuilder();
+            ObjectMapper mapper = new ObjectMapper();
+            for (String line : rawResponse.split("\n")) {
+                if (!line.trim().isEmpty()) {
+                    JsonNode node = mapper.readTree(line);
+                    finalAnswer.append(node.get("response").asText());
+                }
+            }
+
+            return finalAnswer.toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error generating advice";
+        }
+    }
 }
 

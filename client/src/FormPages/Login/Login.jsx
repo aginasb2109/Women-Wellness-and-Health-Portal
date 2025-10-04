@@ -26,6 +26,12 @@ const Login = () => {
                 }
             );
 
+              localStorage.setItem("userId", res.data.id);
+              localStorage.setItem("userName", res.data.username);
+
+              console.log("Stored User ID:", localStorage.getItem("userId"));
+        console.log("Stored User Name:", localStorage.getItem("userName"));
+
             if (res.status === 200) {
                 console.log("login successfully");
                 toast.success("login successfully");

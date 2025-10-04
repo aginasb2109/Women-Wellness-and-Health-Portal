@@ -25,5 +25,28 @@ public class AIController {
     }
 
 
+    @PostMapping("/advice")
+    public String getPeriodAdvice(@RequestBody Map<String, String> request) {
+        String startDate = request.get("startDate");
+        String endDate = request.get("endDate");
+        String notes = request.get("notes");
+
+        if (startDate == null || endDate == null || startDate.isEmpty() || endDate.isEmpty()) {
+            return "Start date and end date are required!";
+        }
+
+        // AI Prompt – personalize advice based on cycle info
+        String prompt = "You are a friendly health assistant specialized in women's menstrual cycles. " +
+                "A user had a period starting on " + startDate + " and ending on " + endDate +
+                (notes != null && !notes.isEmpty() ? ". They noted: " + notes : "") +
+                ". Provide helpful advice, tips, or insights based on this cycle.";
+
+        return service.getAdvice(prompt);
+    }
+
+
+
+
+
 }
 

@@ -10,6 +10,7 @@ import LandingPage from './Pages/LandingPage/LandingPage';
 import Forum from "./FormPages/Forum/Forum";
 import NutritionWellWisher from './Pages/NutritionWellWisher/NutritionWellWisher';
 import DietPlans from './Pages/DietPlanner/DietPlans';
+import PeriodTracker from './Pages/PeriodTracker/PeriodTracker';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/forum" element={<Forum />} />
           <Route path="/Nutrition" element={<NutritionWellWisher />} />
           <Route path="/Diet" element={<DietPlans />} />
+            <Route path="/period" element={<PeriodTracker />} />
         </Routes>
         <Toaster />
       </div>

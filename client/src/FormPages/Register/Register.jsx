@@ -20,6 +20,11 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!username || !password) {
+      toast.error("Please fill all fields!");
+      return;
+    }
+
     try {
       const res = await axios.post("http://localhost:8080/auth/register", {}, {
         params: { username, password, role },
@@ -27,7 +32,15 @@ const Register = () => {
 
       if (res.status === 200) {
         toast.success("Registered Successfully!");
-        navigate("/dashboard");
+
+        // Save user info in localStorage
+        // Assuming backend returns user object with id and username
+        const userData = res.data; // { id: 1, username: 'abc', role: 'USER' }
+        localStorage.setItem("userId", userData.id);
+        localStorage.setItem("username", userData.username);
+        localStorage.setItem("role", userData.role);
+
+        navigate("/dashboard"); // redirect after registration
       } else {
         toast.error("Registration failed");
       }

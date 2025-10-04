@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/auth")
 
@@ -18,15 +20,15 @@ public class AuthController {
     @Autowired
     UserService service;
 
-    @PostMapping("login")
-    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password){
-        String result= service.login(username,password);
-        if (result.startsWith("Login successful")) {
-            return ResponseEntity.ok(result);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result); // 401 Unauthorized
-        }
+    @PostMapping("/login")
+    public ResponseEntity<Optional<User>> login(@RequestParam String username, @RequestParam String password) {
+        Optional<User> user = service.login(username, password);
 
+        if (user != null) {
+            return ResponseEntity.ok(user); // ✅ return user object if login is successful
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
     }
 
     @PostMapping("register")

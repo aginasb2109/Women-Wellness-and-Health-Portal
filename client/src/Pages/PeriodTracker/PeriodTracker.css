@@ -1,0 +1,232 @@
+/* 🌸 Main container layout */
+.tracker-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 50px;
+  background: linear-gradient(120deg, #fce4ec, #f3e5f5, #e1bee7);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  gap: 40px;
+  overflow-x: hidden;
+}
+
+/* 🌼 Left Section - Period History + Cycle Visualization */
+.tracker-left {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(136, 14, 79, 0.2);
+  min-width: 45%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.tracker-left:hover {
+  transform: translateY(-5px);
+}
+
+.tracker-left h2 {
+  color: #880e4f;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* 🌸 Cycle list with floating card animation */
+.period-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.period-item {
+  background: linear-gradient(135deg, #f48fb1, #ce93d8);
+  padding: 18px 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.period-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(136, 14, 79, 0.3);
+}
+
+/* Petal/Circle effect inside each cycle */
+.period-item::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  animation: pulse 6s infinite;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* 🌸 Right Section - Add Period Form */
+.tracker-form {
+  flex: 0.9;
+  max-width: 550px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(136, 14, 79, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.tracker-form h2 {
+  color: #d81b60;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Inputs & Textareas */
+.tracker-form input,
+.tracker-form textarea {
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #f48fb1;
+  outline: none;
+  transition: all 0.3s;
+  font-size: 1rem;
+  background: #fdf6fb;
+  color: #880e4f;
+}
+
+.tracker-form input:focus,
+.tracker-form textarea:focus {
+  border-color: #d81b60;
+  box-shadow: 0 0 10px rgba(216, 27, 96, 0.3);
+}
+
+/* Button Styling */
+.tracker-form button {
+  background: linear-gradient(90deg, #d81b60, #8e24aa);
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.tracker-form button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(216, 27, 96, 0.3);
+  background: linear-gradient(90deg, #c2185b, #6a1b9a);
+}
+
+/* 🌸 Optional creative floating circle for cycles (background decoration) */
+.tracker-left::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f48fb1 0%, transparent 70%);
+  top: -50px;
+  right: -50px;
+  animation: rotateCircle 12s linear infinite;
+  z-index: 0;
+}
+
+.name-color{
+  color:#d81b60 !important;
+}
+.subname-color{
+  color:#6a1b9a !important;
+}
+.sub-color{
+  color:white;
+}
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* AI Advice Button */
+.tracker-item-button {
+  background: linear-gradient(90deg, #ff4081, #9c27b0) !important;
+  color: white !important;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+  margin-top: 10px;
+}
+
+.tracker-item-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.6);
+}
+
+.tracker-item-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* AI Advice Box */
+.advice-output {
+  margin-top: 12px;
+  padding: 15px;
+  background: rgba(255,255,255,0.2);
+  border-left: 4px solid #d81b60;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  color: #000000;
+  line-height: 1.5;
+  animation: fadeIn 0.5s ease;
+}
+.loader {
+  color:"white" !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌸 Responsive */
+@media (max-width: 950px) {
+  .tracker-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tracker-left, .tracker-form {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}

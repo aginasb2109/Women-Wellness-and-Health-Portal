@@ -16,7 +16,7 @@ public class UserService {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public String login(String username, String password) {
+    public Optional<User> login(String username, String password) {
         Optional<User> user = repo.findByUsername(username);
 
         if (user.isPresent()) {
@@ -25,12 +25,12 @@ public class UserService {
 
 
             if (passwordEncoder.matches(password, u.getPassword())) {
-                return "Login successful! Role: " + u.getRole();
+                return user;
             } else {
-                return "Invalid password";
+                return null;
             }
         } else {
-            return "Username not found";
+            return null;
         }
     }
 
