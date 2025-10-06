@@ -14,6 +14,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const UserDashboard = () => {
   const navigate = useNavigate();
 
+  const username = localStorage.getItem("userName");
+
  
 
   return (
@@ -49,7 +51,7 @@ const UserDashboard = () => {
     </Button>
   </div>
 </nav>
-      <Typography variant="h4" className="WelcomeTitle my-4">Welcome User,</Typography>
+      <Typography variant="h4" className="WelcomeTitle my-4">Welcome {username},</Typography>
 <Typography variant="h6" className="WelcomeInfo my-3">
   Welcome to Women's Wellness and Health portal — we provide services exclusively for women
 </Typography>

@@ -1,0 +1,160 @@
+/* Main container */
+.diet-container {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  padding: 40px !important;
+  background-color: #ffffff !important;
+  min-height: 100vh !important;
+  gap: 40px !important; /* gap between left and right */
+  flex-wrap: wrap !important;
+}
+
+/* Left Section - Ask AI */
+.diet-left {
+  flex: 3 !important;
+  background: #fce4ec !important; /* pink background */
+  border-radius: 25px !important;
+  padding: 25px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-width: 350px !important;
+  height: 100vh !important; /* FULL viewport height */
+  position: sticky !important;
+  top: 0 !important; /* stick from top */
+  overflow-y: auto !important;
+  gap: 15px !important;
+}
+
+
+.diet-title {
+  color: #d81b60 !important;
+  font-weight: 600 !important;
+  font-size: 1.7rem !important;
+  margin-bottom: 5px !important;
+}
+
+.diet-subtext {
+  color: #555 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
+  margin-bottom: 8px !important;
+}
+
+.diet-input {
+  background-color: #fff !important;
+  border-radius: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+.diet-button {
+  width: 100% !important;
+  color: white !important;
+  border-radius: 25px !important;
+  padding: 10px !important;
+  text-transform: none !important;
+  font-size: 15px !important;
+  margin-bottom: 8px !important;
+}
+
+.diet-response {
+  background: #fff !important;
+  border-radius: 15px !important;
+  padding: 12px !important;
+  margin-top: 10px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Right Section - Recommended Diet Plans */
+.diet-right {
+  flex: 1.5 !important; /* right panel flex */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  min-width: 400px !important;
+}
+
+/* Heading for Recommended Diet Plans */
+.diet-right-title {
+  color: #8e24aa !important; /* violet color */
+  font-weight: 600 !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 20px !important;
+  text-align: center !important;
+}
+
+/* Grid for cards - 2 per row */
+.diet-right .MuiGrid-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+}
+
+/* Each card container - fixed for 2 per row */
+.diet-right .MuiGrid-item {
+  flex: 0 0 calc(50% - 10px) !important; /* 2 cards per row */
+  box-sizing: border-box !important;
+}
+
+/* Diet Plan Card */
+.diet-card {
+  border-radius: 20px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.3s ease !important;
+  height: 350px !important; /* fixed height */
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.diet-card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.diet-img {
+  width: 100% !important;
+  height: 160px !important;
+  object-fit: cover !important;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.diet-card-title {
+  color: #d81b60 !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  margin-top: 8px !important;
+}
+
+.diet-card-subtitle {
+  color: #555 !important;
+  margin-top: 4px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .diet-container {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .diet-left,
+  .diet-right {
+    width: 100% !important;
+    min-width: auto !important;
+  }
+
+  .diet-right .MuiGrid-item {
+    flex: 0 0 100% !important; /* 1 card per row on mobile */
+  }
+
+  .diet-card {
+    height: auto !important;
+  }
+
+  .diet-img {
+    height: 180px !important;
+  }
+}

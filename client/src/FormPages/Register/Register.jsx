@@ -37,7 +37,7 @@ const Register = () => {
         // Assuming backend returns user object with id and username
         const userData = res.data; // { id: 1, username: 'abc', role: 'USER' }
         localStorage.setItem("userId", userData.id);
-        localStorage.setItem("username", userData.username);
+        localStorage.setItem("userName", userData.username);
         localStorage.setItem("role", userData.role);
 
         navigate("/dashboard"); // redirect after registration

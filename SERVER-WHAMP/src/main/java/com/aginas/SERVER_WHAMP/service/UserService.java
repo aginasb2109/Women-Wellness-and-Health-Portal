@@ -3,6 +3,8 @@ package com.aginas.SERVER_WHAMP.service;
 import com.aginas.SERVER_WHAMP.models.User;
 import com.aginas.SERVER_WHAMP.repository.Userrepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -34,17 +36,32 @@ public class UserService {
         }
     }
 
-    public String register(User user) {
 
-        if(repo.findByUsername(user.getUsername()).isPresent())
-            return "Username already exists";
 
-        if(user.getRole() == null || user.getRole().isEmpty())
-            user.setRole("USER"); // default role
+    public ResponseEntity<Optional<User>> register(User user) {
 
+        // Check if username already exists
+        Optional<User> existingUser = repo.findByUsername(user.getUsername());
+        if (existingUser.isPresent()) {
+            // Return the existing user inside Optional
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(existingUser);
+        }
+
+        // Set default role if not provided
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole("USER");
+        }
+
+        // Encode password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        repo.save(user);
-        return "User registered successfully";
+        // Save new user
+        User savedUser = repo.save(user);
+
+        // Return saved user wrapped in Optional
+        return ResponseEntity.ok(Optional.of(savedUser));
     }
+
+
+
 }

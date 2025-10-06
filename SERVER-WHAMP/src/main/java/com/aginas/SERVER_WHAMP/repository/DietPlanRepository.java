@@ -1,4 +1,8 @@
 package com.aginas.SERVER_WHAMP.repository;
 
-public interface DietPlanRepository {
+import com.aginas.SERVER_WHAMP.models.DietPlan;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DietPlanRepository extends JpaRepository<DietPlan, Long> {
+
 }

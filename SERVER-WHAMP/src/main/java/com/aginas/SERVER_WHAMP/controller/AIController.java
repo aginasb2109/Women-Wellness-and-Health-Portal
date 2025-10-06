@@ -45,6 +45,17 @@ public class AIController {
     }
 
 
+    @PostMapping("/diet")
+    public String getDiet(@RequestBody Map<String, String> request) {
+
+        String query = request.get("query");
+        if (query == null || query.trim().isEmpty()) {
+            return "Query cannot be empty!";
+        }
+        return service.getDiet(query);
+    }
+
+
 
 
 

@@ -32,7 +32,7 @@ public class AuthController {
     }
 
     @PostMapping("register")
-    public String register(@RequestParam String username, @RequestParam String password, @RequestParam String role){
+    public ResponseEntity<Optional<User>> register(@RequestParam String username, @RequestParam String password, @RequestParam String role){
         User user=new User();
         user.setUsername(username);
         user.setPassword(password);
