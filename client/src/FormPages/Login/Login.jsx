@@ -28,6 +28,9 @@ const Login = () => {
 
               localStorage.setItem("userId", res.data.id);
               localStorage.setItem("userName", res.data.username);
+              localStorage.setItem("role", res.data.role);
+              const role=localStorage.getItem("role");
+              console.log(role);
 
               console.log("Stored User ID:", localStorage.getItem("userId"));
         console.log("Stored User Name:", localStorage.getItem("userName"));
@@ -35,7 +38,15 @@ const Login = () => {
             if (res.status === 200) {
                 console.log("login successfully");
                 toast.success("login successfully");
-                navigate("/dashboard");
+                if(role==='USER'){
+                    navigate("/dashboard");
+                }
+                else if(role==='ADMIN'){
+                    navigate("/admin");
+                }
+                else if(role==='DOCTOR'){
+                    navigate("/doctor");
+                }
             } else {
                 console.log("login failed");
                 toast.error("authentication failed");

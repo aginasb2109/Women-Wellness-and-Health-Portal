@@ -10,10 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 @Service
 public class AiService {
+    private final String aiUrl = "http://localhost:11434/api/generate";
 
     public String getNutritionAdvice(String query) {
         try {
-            String aiUrl = "http://localhost:11434/api/generate"; // Ollama server
+            // Ollama server
             RestTemplate restTemplate = new RestTemplate();
 
             Map<String, Object> body = new HashMap<>();
@@ -48,7 +49,7 @@ public class AiService {
 
     public String getAdvice(String prompt) {
         try {
-            String aiUrl = "http://localhost:11434/api/generate"; // Ollama server
+
             RestTemplate restTemplate = new RestTemplate();
 
             Map<String, Object> body = new HashMap<>();
@@ -63,7 +64,7 @@ public class AiService {
             // Call Ollama API
             String rawResponse = restTemplate.postForObject(aiUrl, entity, String.class);
 
-            // Parse streaming JSON chunks
+
             StringBuilder finalAnswer = new StringBuilder();
             ObjectMapper mapper = new ObjectMapper();
             for (String line : rawResponse.split("\n")) {
@@ -84,7 +85,7 @@ public class AiService {
 
     public String getDiet(String query) {
         try {
-            String aiUrl = "http://localhost:11434/api/generate"; // Ollama server
+            // Ollama server
             RestTemplate restTemplate = new RestTemplate();
 
             Map<String, Object> body = new HashMap<>();
@@ -98,8 +99,6 @@ public class AiService {
                     "4. For each meal, include description, portions, tips, and benefits.\n\n" +
                     "Format it nicely using markdown so it can be rendered directly in ReactMarkdown.\n" +
                     "Do NOT output JSON, only readable content text.");
-
-
 
 
             HttpHeaders headers = new HttpHeaders();
@@ -127,5 +126,72 @@ public class AiService {
             return "Error generating answer";
         }
     }
+
+
+    public String getRoutine(Map<String, Object> fitnessData) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+
+            // Extract user inputs
+            String weight = fitnessData.get("weight").toString();
+            String height = fitnessData.get("height").toString();
+            String goal = fitnessData.get("goal").toString();
+            String intensity = fitnessData.get("intensity").toString();
+
+            // 🧠 Improved AI prompt
+            String prompt = String.format(
+                    "You are a certified personal trainer. Generate a structured weekly fitness routine for a female with:\n" +
+                            "- Weight: %s kg\n" +
+                            "- Height: %s cm\n" +
+                            "- Goal: %s\n" +
+                            "- Intensity: %s\n\n" +
+                            "Format the routine using Markdown clearly for a web app:\n" +
+                            "1. Each day of the week (Monday, Tuesday,Wednesday, Thursday, Friday, Saturday etc.) must be a subheading (Day Name) in Bold words.\n" +
+                            "2. Include sections for Warm-up, Exercises, Cool-down, and Tips if applicable.\n" +
+                            "3. Use bullet points  for each exercise step.\n" +
+                            "4. Use bold headings for exercise names and key instructions.\n" +
+                            "5. Ensure proper spacing and line breaks so ReactMarkdown renders correctly.\n" +
+                            "6. Do not insert extra symbols, hashtags, or markdown errors.\n" +
+                            "7. The output should be ready to display as is in ReactMarkdown.\n\n" +
+                            "Return only the Markdown text.",
+                    weight, height, goal, intensity
+            );
+
+            // Prepare request body
+            Map<String, Object> body = new HashMap<>();
+            body.put("model", "llama3.2:1b");
+            body.put("prompt", prompt);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+
+            // Send request
+            String rawResponse = restTemplate.postForObject(aiUrl, entity, String.class);
+
+            // Clean streaming JSON lines
+            StringBuilder finalAnswer = new StringBuilder();
+            ObjectMapper mapper = new ObjectMapper();
+
+            for (String line : rawResponse.split("\n")) {
+                if (!line.trim().isEmpty() && line.contains("\"response\"")) {
+                    JsonNode node = mapper.readTree(line);
+                    finalAnswer.append(node.get("response").asText());
+                }
+            }
+
+            // Return ready-to-display Markdown
+            return finalAnswer.toString()
+                    .replaceAll("\\\\n", "\n")  // convert literal \n to actual newlines
+                    .replaceAll("\\s{2,}", " ") // remove multiple spaces
+                    .trim();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error generating fitness routine. Please try again later.";
+        }
+    }
+
 }
 

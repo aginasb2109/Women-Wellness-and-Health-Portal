@@ -16,6 +16,7 @@ const Register = () => {
   const roles = [
     { value: 'USER', label: 'USER' },
     { value: 'ADMIN', label: 'ADMIN' },
+    {value:'DOCTOR',label:'DOCTOR'}
   ];
 
   const handleSubmit = async (e) => {
@@ -35,12 +36,20 @@ const Register = () => {
 
         // Save user info in localStorage
         // Assuming backend returns user object with id and username
-        const userData = res.data; // { id: 1, username: 'abc', role: 'USER' }
+        const userData = res.data; 
         localStorage.setItem("userId", userData.id);
         localStorage.setItem("userName", userData.username);
         localStorage.setItem("role", userData.role);
 
-        navigate("/dashboard"); // redirect after registration
+        if(userData.role==='USER'){
+          navigate("/dashboard");
+        } 
+        else if(userData.role==='ADMIN'){
+          navigate("/admin");
+        }
+        else{
+          navigate("/doctor");
+        }
       } else {
         toast.error("Registration failed");
       }

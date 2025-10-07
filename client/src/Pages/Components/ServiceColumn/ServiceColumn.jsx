@@ -18,7 +18,7 @@ const ServicesColumn = () => {
     { name: "Doctor Appointments", icon: <LocalHospitalIcon />, path: "/doctor-appointments" },
     { name: "Nutrition Well-Wisher", icon: <RestaurantIcon />, path: "/Nutrition" },
     { name: "Diet Plans", icon: <SpaIcon />, path: "/Diet" },
-    { name: "Fitness Routines", icon: <FitnessCenterIcon />, path: "/fitness-routines" },
+    { name: "Fitness Routines", icon: <FitnessCenterIcon />, path: "/fit" },
     
   ];
 

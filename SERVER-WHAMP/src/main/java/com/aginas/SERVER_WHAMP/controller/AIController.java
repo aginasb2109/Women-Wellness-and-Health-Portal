@@ -1,10 +1,12 @@
 package com.aginas.SERVER_WHAMP.controller;
 
+import com.aginas.SERVER_WHAMP.models.Fitness;
 import com.aginas.SERVER_WHAMP.service.AiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -53,6 +55,16 @@ public class AIController {
             return "Query cannot be empty!";
         }
         return service.getDiet(query);
+    }
+
+    @PostMapping("/routine")
+    public String getFitnessRoutine(@RequestBody Fitness fitness) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("weight", fitness.getWeight());
+        data.put("height", fitness.getHeight());
+        data.put("goal", fitness.getGoal());
+        data.put("intensity", fitness.getIntensity());
+        return service.getRoutine(data);
     }
 
 
