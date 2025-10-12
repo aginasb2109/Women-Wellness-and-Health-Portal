@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import "./FitnessRoutine.css";
-import { Button, TextField, CircularProgress, Typography } from "@mui/material";
+import { Button, TextField, CircularProgress} from "@mui/material";
+import Footer from "../Components/Footer/Footer";
+import NavBar from "../Components/NavBar/NavBar";
 
 export default function FitnessRoutine() {
   const [goal, setGoal] = useState("weight_loss");
@@ -32,15 +34,15 @@ export default function FitnessRoutine() {
         fitnessData
       );
 
-      // Backend should return Markdown text
+      
       let markdown = res.data;
 
-      // Clean extra spaces & newlines
-      markdown = markdown
-        .replace(/\\n/g, "\n")
-        .replace(/\r/g, "")
-        .replace(/\s{2,}/g, " ")
-        .trim();
+     
+     markdown = markdown
+  .replace(/\\n/g, "\n")
+  .replace(/\r/g, "")
+  .replace(/[ ]{2,}/g, " ") 
+  .trim();
 
       setAiResponse(markdown);
     } catch (err) {
@@ -52,7 +54,9 @@ export default function FitnessRoutine() {
   }
 
   return (
-    <div className="fitness-wrapper">
+   <div className="fit">
+    <NavBar />
+     <div className="fitness-wrapper">
       <div className="fitness-form-section">
         <h1 className="fitness-title">🏋️‍♀️ AI-Powered Fitness Planner</h1>
         <p className="fitness-subtitle">
@@ -132,5 +136,7 @@ export default function FitnessRoutine() {
         )}
       </div>
     </div>
+    <Footer />
+   </div>
   );
 }

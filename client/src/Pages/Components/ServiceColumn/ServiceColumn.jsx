@@ -10,12 +10,13 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SpaIcon from '@mui/icons-material/Spa';
 
 
+
 const ServicesColumn = () => {
   const navigate = useNavigate();
 
   const services = [
     { name: "Period Tracker", icon: <CalendarTodayIcon />, path: "/period" },
-    { name: "Doctor Appointments", icon: <LocalHospitalIcon />, path: "/doctor-appointments" },
+    
     { name: "Nutrition Well-Wisher", icon: <RestaurantIcon />, path: "/Nutrition" },
     { name: "Diet Plans", icon: <SpaIcon />, path: "/Diet" },
     { name: "Fitness Routines", icon: <FitnessCenterIcon />, path: "/fit" },

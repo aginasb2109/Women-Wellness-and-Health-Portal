@@ -27,7 +27,7 @@ const UserDashboard = () => {
   </div>
   <div className="NavbarLinks">
     
-    <Button
+    {/* <Button
       onClick={() => navigate("/profile")}
       variant="contained"
       className="NavButton"
@@ -35,12 +35,12 @@ const UserDashboard = () => {
       style={{ marginRight: "10px" }}
     > Profile
      
-    </Button>
+    </Button> */}
 
-    {/* Logout Button */}
+  
     <Button
       onClick={() => {
-        // Add your logout logic here
+       
         navigate("/");
       }}
       variant="contained"
@@ -59,12 +59,12 @@ const UserDashboard = () => {
 
 
       <div className="TwoCols">
-  {/* Left column */}
+ 
   <div className="FirstCol my-3">
     <ServiceColumn />
   </div>
 
-  {/* Right column */}
+ 
   <div className="SecondCols my-3">
    <div className="SecondCol"> <SafetyTipColumn /></div>
        <div className="ForumCard">

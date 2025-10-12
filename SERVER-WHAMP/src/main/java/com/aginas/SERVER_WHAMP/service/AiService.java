@@ -149,7 +149,7 @@ public class AiService {
                             "1. Each day of the week (Monday, Tuesday,Wednesday, Thursday, Friday, Saturday etc.) must be a subheading (Day Name) in Bold words.\n" +
                             "2. Include sections for Warm-up, Exercises, Cool-down, and Tips if applicable.\n" +
                             "3. Use bullet points  for each exercise step.\n" +
-                            "4. Use bold headings for exercise names and key instructions.\n" +
+                            "4. Use bold headings that can be rendered by ReactMarkdown for exercise names and key instructions.\n" +
                             "5. Ensure proper spacing and line breaks so ReactMarkdown renders correctly.\n" +
                             "6. Do not insert extra symbols, hashtags, or markdown errors.\n" +
                             "7. The output should be ready to display as is in ReactMarkdown.\n\n" +
