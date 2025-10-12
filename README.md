@@ -1,3 +1,4 @@
+
 # Women’s Health & Wellness Portal
 
 A web portal designed for women to **track menstrual cycles, monitor health, receive fitness and nutrition guidance, and interact with a wellness community**.  
@@ -9,9 +10,9 @@ The portal integrates AI using the **Ollama Llama model** for personalized recom
 
 - Track menstrual cycles and monitor health metrics  
 - AI-powered fitness, diet, and nutrition guidance using Spring AI and the Ollama Llama model  
-- Interactive forums to share experiences and wellness tips  
+- Interactive forums for sharing experiences and wellness tips  
 - Responsive frontend built with React.js and Material UI  
-- Backend powered by Spring Boot
+- Robust backend powered by Spring Boot  
 
 > ⚠️ **Note:** The portal is currently under construction. New features, including enhanced security and additional wellness tools, are being added.
 
@@ -22,7 +23,7 @@ The portal integrates AI using the **Ollama Llama model** for personalized recom
 - **Frontend:** React.js, Material UI  
 - **Backend:** Java, Spring Boot  
 - **AI Integration:** Spring AI with Ollama Llama model (downloaded and used locally)  
-- **Database:**  MySQL
+- **Database:** MySQL  
 
 ---
 
@@ -34,29 +35,35 @@ The portal integrates AI using the **Ollama Llama model** for personalized recom
 cd client
 npm install
 npm start
-Backend
-Ensure Java and Maven are installed.
+````
 
-Navigate to the backend project folder.
+### Backend
 
-Run the backend:
+1. Ensure **Java** and **Maven** are installed on your system.
+2. Navigate to the backend project folder.
+3. Run the backend server:
 
-bash
-Copy code
+```bash
 mvn spring-boot:run
-The backend will run on http://localhost:8080 (default Spring Boot port).
+```
 
-AI Setup
-Ollama Llama model should be downloaded locally.
+4. The backend will run on [http://localhost:8080](http://localhost:8080) by default.
 
-Configure the model path correctly in the backend application before running.
+### AI Setup
 
-Future Plans
-Implement authentication and security features
+* Download the **Ollama Llama model** locally.
+* Configure the model path in the backend application before starting the server.
 
-Add more AI-driven wellness tools and insights
+---
 
-Improve user experience and forum functionality
+## Future Plans
 
-Contributing
-This project is under active development. Contributions and suggestions are welcome!
+* Implement authentication and enhanced security features
+* Add more AI-driven wellness tools and personalized insights
+* Improve forum functionality and overall user experience
+
+---
+
+
+
+
