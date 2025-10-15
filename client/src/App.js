@@ -13,6 +13,8 @@ import DietPlans from './Pages/DietPlanner/DietPlans';
 import PeriodTracker from './Pages/PeriodTracker/PeriodTracker';
 import FitnessRoutine from './Pages/FitnessRoutine/FitnessRoutine';
 import DoctorAppointments from "./Pages/DoctorAppointments/Doctor";
+import DoctorDashboard from "./Pages/DashboardPages/DoctorDashboard/DoctorDashboard";
+import AdminDashboard from "./Pages/DashboardPages/AdminDashboard/AdminDashbard";
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
             <Route path="/period" element={<PeriodTracker />} />
             <Route path="/fit" element={<FitnessRoutine/>} />
             <Route path="/doctor" element={<DoctorAppointments />} />
+            <Route path="/doctor/dashboard" element={<DoctorDashboard/>} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Routes>
         <Toaster />
       </div>

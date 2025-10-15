@@ -27,7 +27,7 @@ const UserDashboard = () => {
   </div>
   <div className="NavbarLinks">
     
-    {/* <Button
+    <Button
       onClick={() => navigate("/profile")}
       variant="contained"
       className="NavButton"
@@ -35,7 +35,7 @@ const UserDashboard = () => {
       style={{ marginRight: "10px" }}
     > Profile
      
-    </Button> */}
+    </Button>
 
   
     <Button
