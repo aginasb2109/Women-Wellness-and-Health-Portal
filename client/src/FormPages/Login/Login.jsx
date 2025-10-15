@@ -42,10 +42,10 @@ const Login = () => {
                     navigate("/dashboard");
                 }
                 else if(role==='ADMIN'){
-                    navigate("/admin");
+                    navigate("/admin/dashboard");
                 }
                 else if(role==='DOCTOR'){
-                    navigate("/doctor");
+                    navigate("/doctor/dashboard");
                 }
             } else {
                 console.log("login failed");

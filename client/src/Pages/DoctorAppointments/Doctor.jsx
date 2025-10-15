@@ -36,7 +36,7 @@ const Doctor = () => {
 
   return (
     <div className="doctor">
-      <NavBar />
+      <NavBar  buttons={[ { label: "Dashboard", path: "/dashboard" }]}/>
       <Box className="doctor-dashboard">
       <Box className="header-section">
         <Typography variant="h4" className="page-title">

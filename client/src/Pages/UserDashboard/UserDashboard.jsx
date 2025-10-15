@@ -9,6 +9,7 @@ import SafetyTipColumn from "../Components/SafetyTipColumn/SafetyTipColumn";
 import RecentNews from "../Components/RecentNews/RecentNews";
 import Footer from "../Components/Footer/Footer";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import NavBar from "../Components/NavBar/NavBar";
 
 
 const UserDashboard = () => {
@@ -20,37 +21,13 @@ const UserDashboard = () => {
 
   return (
     <div className="UserDashboard">
-      <nav className="LandingNavbar">
-  <div className="NavbarLogo">
-    <WomanIcon fontSize="large" style={{ color: '#fff' }} />
-    <span>Women Health & Wellness Portal</span>
-  </div>
-  <div className="NavbarLinks">
-    
-    <Button
-      onClick={() => navigate("/profile")}
-      variant="contained"
-      className="NavButton"
-      startIcon={<AccountCircleIcon />}
-      style={{ marginRight: "10px" }}
-    > Profile
-     
-    </Button>
-
-  
-    <Button
-      onClick={() => {
-       
-        navigate("/");
-      }}
-      variant="contained"
-      className="NavButton"
-      style={{ backgroundColor: "#ec407a", color: "#fff" }}
-    >
-      Logout
-    </Button>
-  </div>
-</nav>
+      <NavBar
+  buttons={[
+   
+    { label: "Profile", path: "/profile", icon: AccountCircleIcon },
+    { label: "Logout", path: "/logout" }
+  ]}
+/>
       <Typography variant="h4" className="WelcomeTitle my-4">Welcome {username},</Typography>
 <Typography variant="h6" className="WelcomeInfo my-3">
   Welcome to Women's Wellness and Health portal — we provide services exclusively for women

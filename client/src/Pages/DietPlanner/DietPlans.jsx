@@ -76,7 +76,7 @@ const DietPlans = () => {
 
   return (
     <div className="Diet">
-      <NavBar />
+      <NavBar  buttons={[ { label: "Dashboard", path: "/dashboard" }]}/>
       <div className="diet-container">
         {/* Left Section - Ask AI */}
         <div className="diet-left">

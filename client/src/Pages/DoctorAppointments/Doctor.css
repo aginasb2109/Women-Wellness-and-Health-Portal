@@ -13,14 +13,14 @@
 }
 
 .page-title {
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #8e24aa; /* dark end of gradient */
 }
 
 .page-subtitle {
   color: #d81b60; /* lighter end of gradient */
   margin-top: 0.3rem;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 /* Main layout: two columns */
@@ -72,10 +72,10 @@
 }
 
 .doctor-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid #d81b60; /* gradient start */
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  border: 3px solid #d81b60 !important; /* gradient start */
 }
 
 .doctor-info {
@@ -84,13 +84,13 @@
 
 .doctor-name {
   font-weight: 600;
-  color: #8e24aa; /* gradient end */
+  color: #8e24aa !important; /* gradient end */
   font-size: 1.1rem;
 }
 
 .doctor-special,
 .doctor-avail {
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
   color: #d81b60; /* gradient start */
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@
 }
 
 .history-card {
-  border-left: 5px solid #d81b60; /* gradient start */
+  border-left: 5px solid #d81b60 !important; /* gradient start */
   border-radius: 12px !important;
   box-shadow: 0 5px 15px rgba(216, 27, 96, 0.1); /* subtle gradient shadow */
   transition: all 0.3s ease;
@@ -153,27 +153,27 @@
 }
 
 .history-avatar {
-  width: 55px;
-  height: 55px;
+  width: 55px !important;
+  height: 55px !important;
 }
 
 .history-doctor {
-  font-weight: 600;
-  color: #8e24aa; /* gradient end */
+  font-weight: 600 !important;
+  color: #8e24aa !important; /* gradient end */
 }
 
 .history-special {
-  font-size: 0.85rem;
-  color: #d81b60; /* gradient start */
+  font-size: 0.85rem !important;
+  color: #d81b60 !important; /* gradient start */
 }
 
 .history-time {
-  font-size: 0.8rem;
-  color: #aa36a5; /* mid gradient tone */
+  font-size: 0.8rem !important;
+  color: #aa36a5 !important; /* mid gradient tone */
 }
 
 .no-history {
-  color: #d891c0; /* soft gradient shade */
+  color: #d891c0 !important; /* soft gradient shade */
   text-align: center;
   margin-top: 2rem;
 }

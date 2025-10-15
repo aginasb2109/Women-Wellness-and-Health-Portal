@@ -86,7 +86,7 @@ const PeriodTracker = () => {
 
   return (
     <div className="Period">
-      <NavBar />
+      <NavBar  buttons={[ { label: "Dashboard", path: "/dashboard" }]}/>
       <div className="tracker-container">
       {/* Left: Period History */}
       <div className="tracker-left">

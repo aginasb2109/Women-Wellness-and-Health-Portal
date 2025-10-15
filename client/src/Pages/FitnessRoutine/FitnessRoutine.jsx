@@ -55,7 +55,7 @@ export default function FitnessRoutine() {
 
   return (
    <div className="fit">
-    <NavBar />
+     <NavBar  buttons={[ { label: "Dashboard", path: "/dashboard" }]}/>
      <div className="fitness-wrapper">
       <div className="fitness-form-section">
         <h1 className="fitness-title">🏋️‍♀️ AI-Powered Fitness Planner</h1>

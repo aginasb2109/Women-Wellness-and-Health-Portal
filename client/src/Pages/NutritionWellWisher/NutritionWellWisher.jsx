@@ -34,7 +34,7 @@ const NutritionWellWisher = () => {
 
   return (
     <div className="nww">
-      <NavBar />
+       <NavBar  buttons={[ { label: "Dashboard", path: "/dashboard" }]}/>
       <div className="nutrition-container">
         <Card className="nutrition-card">
           <Typography variant="h4" className="nutrition-title">

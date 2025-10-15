@@ -45,10 +45,10 @@ const Register = () => {
           navigate("/dashboard");
         } 
         else if(userData.role==='ADMIN'){
-          navigate("/admin");
+          navigate("/admin/dashboard");
         }
         else{
-          navigate("/doctor");
+          navigate("/doctor/dashboard");
         }
       } else {
         toast.error("Registration failed");
