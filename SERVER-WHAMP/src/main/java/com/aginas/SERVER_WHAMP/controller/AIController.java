@@ -67,6 +67,19 @@ public class AIController {
         return service.getRoutine(data);
     }
 
+    @PostMapping("/skincare")
+    public String getSkinCareAdvice(@RequestBody Map<String, String> request) {
+        String query = request.get("query");
+        if (query == null || query.trim().isEmpty()) {
+            return "Query cannot be empty!";
+        }
+        return service.getSkinCareAdvice(query);
+    }
+
+
+
+
+
 
 
 

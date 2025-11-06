@@ -193,5 +193,48 @@ public class AiService {
         }
     }
 
+    public String getSkinCareAdvice(String query) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+
+            String prompt = "You are GlowGuide AI, a friendly and knowledgeable skincare advisor. " +
+                    "Provide clear, dermatologist-inspired skincare advice for this question: \"" + query + "\".\n\n" +
+                    "Guidelines:\n" +
+                    "1. Give tips for healthy, glowing skin using safe and practical steps.\n" +
+                    "2. Recommend skincare routines or ingredients (like hyaluronic acid, niacinamide, SPF, aloe vera, etc.) relevant to the user’s concern.\n" +
+                    "3. Do NOT prescribe medicines or medical treatments.\n" +
+                    "4. Keep your response conversational, short (2–4 sentences), and positive.\n" +
+                    "5. Use simple language and an empathetic tone.\n" +
+                    "6. Add one emoji related to beauty or self-care if suitable (🌸✨💧).";
+
+            Map<String, Object> body = new HashMap<>();
+            body.put("model", "llama3.2:1b");
+            body.put("prompt", prompt);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+
+            // Call Ollama API
+            String rawResponse = restTemplate.postForObject(aiUrl, entity, String.class);
+
+            // Clean streaming JSON lines
+            StringBuilder finalAnswer = new StringBuilder();
+            ObjectMapper mapper = new ObjectMapper();
+            for (String line : rawResponse.split("\n")) {
+                if (!line.trim().isEmpty()) {
+                    JsonNode node = mapper.readTree(line);
+                    finalAnswer.append(node.get("response").asText());
+                }
+            }
+
+            return finalAnswer.toString().trim();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error generating skincare advice. Please try again later.";
+        }
+    }
 }
 

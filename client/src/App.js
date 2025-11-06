@@ -12,8 +12,8 @@ import NutritionWellWisher from './Pages/NutritionWellWisher/NutritionWellWisher
 import DietPlans from './Pages/DietPlanner/DietPlans';
 import PeriodTracker from './Pages/PeriodTracker/PeriodTracker';
 import FitnessRoutine from './Pages/FitnessRoutine/FitnessRoutine';
-import DoctorAppointments from "./Pages/DoctorAppointments/Doctor";
-import DoctorDashboard from "./Pages/DashboardPages/DoctorDashboard/DoctorDashboard";
+import SkinCareAdvisior from "./Pages/SkinCareAdvisior/SkinCareAdvisior";
+
 import AdminDashboard from "./Pages/DashboardPages/AdminDashboard/AdminDashbard";
 
 
@@ -26,14 +26,15 @@ function App() {
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage />} />
-          <Route path="/forum" element={<Forum />} />
+          <Route path="/forum" element={<Forum title="Share your Thoughts" label="Your thoughts" />} />
           <Route path="/Nutrition" element={<NutritionWellWisher />} />
           <Route path="/Diet" element={<DietPlans />} />
             <Route path="/period" element={<PeriodTracker />} />
             <Route path="/fit" element={<FitnessRoutine/>} />
-            <Route path="/doctor" element={<DoctorAppointments />} />
-            <Route path="/doctor/dashboard" element={<DoctorDashboard/>} />
+      
+           <Route path="/face" element={<SkinCareAdvisior/>} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/appointment" element={<Forum title="Book Your Appointment" label="Explain Your Problem" />} />
         </Routes>
         <Toaster />
       </div>

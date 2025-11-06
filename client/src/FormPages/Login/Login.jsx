@@ -44,9 +44,7 @@ const Login = () => {
                 else if(role==='ADMIN'){
                     navigate("/admin/dashboard");
                 }
-                else if(role==='DOCTOR'){
-                    navigate("/doctor/dashboard");
-                }
+                
             } else {
                 console.log("login failed");
                 toast.error("authentication failed");

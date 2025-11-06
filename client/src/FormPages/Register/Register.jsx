@@ -16,7 +16,7 @@ const Register = () => {
   const roles = [
     { value: 'USER', label: 'USER' },
     { value: 'ADMIN', label: 'ADMIN' },
-    {value:'DOCTOR',label:'DOCTOR'}
+   
   ];
 
   const handleSubmit = async (e) => {

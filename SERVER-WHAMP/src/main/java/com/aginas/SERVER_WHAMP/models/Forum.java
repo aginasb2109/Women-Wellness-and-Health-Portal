@@ -22,8 +22,9 @@ public class Forum {
     private String address;
     @Column(nullable = false)
     private Long phoneNo;
+    @Column(nullable = false)
+    private Integer age;
     @Column(columnDefinition = "LONGTEXT", nullable=false)
-
     private String content;
 
 }

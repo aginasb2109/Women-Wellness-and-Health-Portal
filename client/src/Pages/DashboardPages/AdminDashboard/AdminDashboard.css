@@ -21,7 +21,7 @@
 /* Top Panels */
 .top-section {
   display: flex;
-  justify-content: space-between; /* Push left and right panels to extremes */
+  justify-content: space-between; 
   gap: 2rem;
 }
 
