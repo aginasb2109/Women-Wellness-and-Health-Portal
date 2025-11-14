@@ -12,9 +12,7 @@ import NutritionWellWisher from './Pages/NutritionWellWisher/NutritionWellWisher
 import DietPlans from './Pages/DietPlanner/DietPlans';
 import PeriodTracker from './Pages/PeriodTracker/PeriodTracker';
 import FitnessRoutine from './Pages/FitnessRoutine/FitnessRoutine';
-import SkinCareAdvisior from "./Pages/SkinCareAdvisior/SkinCareAdvisior";
 
-import AdminDashboard from "./Pages/DashboardPages/AdminDashboard/AdminDashbard";
 
 
 function App() {
@@ -32,9 +30,9 @@ function App() {
             <Route path="/period" element={<PeriodTracker />} />
             <Route path="/fit" element={<FitnessRoutine/>} />
       
-           <Route path="/face" element={<SkinCareAdvisior/>} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/appointment" element={<Forum title="Book Your Appointment" label="Explain Your Problem" />} />
+          
+           
+           
         </Routes>
         <Toaster />
       </div>

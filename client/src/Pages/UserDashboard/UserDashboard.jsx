@@ -24,8 +24,8 @@ const UserDashboard = () => {
       <NavBar
   buttons={[
    
-    { label: "Profile", path: "/profile", icon: AccountCircleIcon },
-    { label: "Logout", path: "/logout" }
+
+    { label: "Logout", path: "/" }
   ]}
 />
       <Typography variant="h4" className="WelcomeTitle my-4">Welcome {username},</Typography>

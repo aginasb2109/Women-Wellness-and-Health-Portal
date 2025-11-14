@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./ServiceColumn.css";
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import FaceIcon from '@mui/icons-material/Face';
+
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SpaIcon from '@mui/icons-material/Spa';
@@ -20,7 +20,7 @@ const ServicesColumn = () => {
     { name: "Nutrition Well-Wisher", icon: <RestaurantIcon />, path: "/Nutrition" },
     { name: "Diet Plans", icon: <SpaIcon />, path: "/Diet" },
     { name: "Fitness Routines", icon: <FitnessCenterIcon />, path: "/fit" },
-    { name: "AI SkinCare Advisior", icon: <FaceIcon />, path: "/face" },
+   
     
   ];
 
